@@ -37,10 +37,22 @@ export class ProductPage {
   selectedCategory: string;
   filterText: string;
   cartCount: number = 0;
+  myClock: string;
+  
   ionViewDidLoad() {
     console.log("ionViewDidLoad ProductPage");
-      this.getProducts();
-      // this.getCategories();
+    this.getProducts();
+    // this.getCategories();
+    
+    this.myClock = this.getTime();
+    // setInterval(function(){ 
+    //   this.myClock = this.getTime();
+    // }, 1000);
+  }
+
+  getTime(){
+    var date = new Date();
+    return [date.getHours(), date.getMinutes(), date.getSeconds()].map(current => current >= 10 ? current : "0" + current).join(":");
   }
 
   getProducts() {

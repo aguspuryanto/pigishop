@@ -14,6 +14,7 @@
 
 <ion-content padding>
   <ion-searchbar [(ngModel)]="filterText" (ionInput)="getItems()" ></ion-searchbar>
+  <h4 text-center>{{ myClock }}</h4>
   <ion-list>
     <!-- <ion-item>
       <ion-label>Select a Category</ion-label>
@@ -35,7 +36,7 @@
       <ion-row>
         <ion-col col-6 *ngFor="let product of products" (click)="itemTapped($event,product)">
           <ion-card>
-              <img src="{{product.productImg}}" />
+              <img *ngIf="product.productImg" src="{{product.productImg}}" />
               <ion-card-content>
                   <p>{{product.productName}}</p>
                   <div item-right>
