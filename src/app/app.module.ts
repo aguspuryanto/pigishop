@@ -4,7 +4,7 @@ import { ProductDetailPage } from './../pages/product-detail/product-detail';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import {  HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -12,9 +12,10 @@ import { ListPage } from '../pages/list/list';
 import { ProductPage } from '../pages/product/product';
 import { ShoppingCartPage } from '../pages/shopping-cart/shopping-cart';
 
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicImageCacheModule } from 'ionic3-image-cache';
+// import { IonicImageLoader } from 'ionic-image-loader';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicImageCacheModule.forRoot(),
+    // IonicImageLoader.forRoot(),
     HttpModule
   ],
   bootstrap: [IonicApp],
@@ -44,7 +47,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   providers: [
     CartService,
-    {provide:"apiUrl",useValue:"http://localhost/"},
+    {provide: "apiUrl", useValue :"http://localhost/"},
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

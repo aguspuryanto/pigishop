@@ -14,7 +14,7 @@
 
 <ion-content padding>
   <ion-searchbar [(ngModel)]="filterText" (ionInput)="getItems()" ></ion-searchbar>
-  <h4 text-center>{{ myClock }}</h4>
+  <!-- <h4 text-center>{{ myClock }}</h4> -->
   <ion-list>
     <!-- <ion-item>
       <ion-label>Select a Category</ion-label>
@@ -33,15 +33,14 @@
 
     <ion-grid>
 
-      <ion-row>
-        <ion-col col-6 *ngFor="let product of products" (click)="itemTapped($event,product)">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="6" col-6 class="product-col" *ngFor="let product of products" (click)="itemTapped($event,product)">
           <ion-card>
-              <img *ngIf="product.productImg" src="{{product.productImg}}" />
+              <ionic-image-cache *ngIf="product.productImg" [showPreview]="'false'" [src]="product.productImg"></ionic-image-cache>
+              <!-- <img-loader *ngIf="product.productImg"  src="{{product.productImg}}"></img-loader> -->
               <ion-card-content>
-                  <p>{{product.productName}}</p>
-                  <div item-right>
-                    {{product.unitPrice}}
-                  </div>
+                  <ion-card-title text-wrap style="font-size: 1.4rem;">{{product.productName}}</ion-card-title>
+                  <div item-right>Rp. {{product.unitPrice | number }} </div>
               </ion-card-content>
           </ion-card>
         </ion-col>
@@ -49,4 +48,9 @@
     </ion-grid>
 
   </ion-list>
+
+  <ion-infinite-scroll *ngIf="!noMoreData" threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" distance="5%" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

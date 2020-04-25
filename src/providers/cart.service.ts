@@ -27,6 +27,7 @@ export class CartService {
     } else {
       let cartItem = new CartItem();
       cartItem.product = product;
+      cartItem.productImg = product.productImg;
       cartItem.quantity = 1;
       CART_ITEM_LIST.push(cartItem);
     }

@@ -13,13 +13,11 @@ export class ProductService {
 
   constructor(private http: Http ,@Inject('apiUrl') private apiUrl ) { }
 
-  getProducts(seoUrl?:string): Observable<Product[]> {
+  getProducts(seoUrl?:any): Observable<Product[]> {
     if(seoUrl){
-      // return this.http.get(this.apiUrl + 'products/' + seoUrl).map(response => response.json() );
-
+      return this.http.get(this.apiUrl + 'pigiShopApi/products.php?page=' + seoUrl).map(response => response.json());
     }else{
-      return this.http.get(this.apiUrl + 'pigiShopApi/products.php').map(response => response.json() );
-
+      return this.http.get(this.apiUrl + 'pigiShopApi/products.php').map(response => response.json());
     }
   }
 
