@@ -15,4 +15,16 @@
   </p>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
+
+  <ion-slides #mySlider (ionSlidesDidLoad)="slidesDidLoad()" autoplay="5000" loop="true" speed="500" class="slides" pager="true" [options]="slideOpts">
+    <ion-slide>
+      <h1>Slide 1</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 2</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 3</h1>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

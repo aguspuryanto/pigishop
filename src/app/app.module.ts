@@ -11,6 +11,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ProductPage } from '../pages/product/product';
 import { ShoppingCartPage } from '../pages/shopping-cart/shopping-cart';
+import { ChatPage } from '../pages/chat/chat';
+import { CheckoutPage } from '../pages/checkout/checkout';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,6 +27,8 @@ import { IonicImageCacheModule } from 'ionic3-image-cache';
     ProductPage,
     ProductDetailPage,
     ShoppingCartPage,
+    ChatPage,
+    CheckoutPage,
    // DnmPage
   ],
   imports: [
@@ -42,6 +46,8 @@ import { IonicImageCacheModule } from 'ionic3-image-cache';
     ProductPage,
     ProductDetailPage,
     ShoppingCartPage,
+    ChatPage,
+    CheckoutPage,
    // DnmPage
 
   ],

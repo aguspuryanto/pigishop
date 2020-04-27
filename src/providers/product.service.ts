@@ -15,9 +15,10 @@ export class ProductService {
 
   getProducts(seoUrl?:any): Observable<Product[]> {
     if(seoUrl){
-      return this.http.get(this.apiUrl + 'pigiShopApi/products.php?page=' + seoUrl).map(response => response.json());
+      return this.http.get(this.apiUrl + 'evoush/product/get_produk?page=' + seoUrl).map(response => response.json());
     }else{
-      return this.http.get(this.apiUrl + 'pigiShopApi/products.php').map(response => response.json());
+      // return this.http.get(this.apiUrl + 'pigiShopApi/products.php').map(response => response.json());
+      return this.http.get(this.apiUrl + 'evoush/product/get_produk').map(response => response.json());
     }
   }
 

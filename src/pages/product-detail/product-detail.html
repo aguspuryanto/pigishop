@@ -17,13 +17,13 @@
   <ion-card>
     <ionic-image-cache *ngIf="selectedProduct.productImg" [showPreview]="'false'" [src]="selectedProduct.productImg"></ionic-image-cache>
     <ion-card-content>
-      <div> {{selectedProduct.productName}} </div>
-      <div>Rp. {{selectedProduct.unitPrice | number }} </div>
+      <ion-card-title> {{selectedProduct.productName}} </ion-card-title>
+      <h3>Rp. {{selectedProduct.unitPrice | number }} </h3>
       <div>
-        <button ion-button (click)="addToCart(selectedProduct)" >
-          <ion-icon name="basket">Tanya Penjual</ion-icon>
+        <button ion-button color="secondary" (click)="chatSeller(selectedProduct)" full>
+          <ion-icon name="chatboxes">Tanya Penjual</ion-icon>
         </button>
-        <button ion-button (click)="addToCart(selectedProduct)" >
+        <button ion-button (click)="addToCart(selectedProduct)" full>
           <ion-icon name="basket">Beli Sekarang</ion-icon>
         </button>
       </div>

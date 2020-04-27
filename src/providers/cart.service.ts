@@ -14,10 +14,7 @@ export class CartService {
 
   addToCart(product: Product): void {
 
-    console.log("unitPrice: " + product.unitPrice);
-    // product.unitPrice = +(product.unitPrice as any).replace(/[^0-9.]/g,"");
-    // product.unitPrice = +(product.unitPrice as any).match(/([0-9.])+/,"");
-
+    // console.log("unitPrice: " + product.unitPrice);
     var addedItem = CART_ITEM_LIST.find(
       t => t.product.productId == product.productId
     );
@@ -35,6 +32,10 @@ export class CartService {
 
   list(): CartItem[] {
     return CART_ITEM_LIST;
+
+    if (localStorage.getItem('cart_item')){
+      localStorage.setItem('cart_item',JSON.stringify(CART_ITEM_LIST));
+    }
   }
 
   clear() {

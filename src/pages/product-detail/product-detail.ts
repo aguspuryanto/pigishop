@@ -3,6 +3,7 @@ import { CartService } from "../../providers/cart.service";
 import { Product } from "../../entities/product";
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { ChatPage } from '../chat/chat';
 
 @IonicPage()
 @Component({
@@ -26,22 +27,31 @@ export class ProductDetailPage {
   ionViewDidLoad() {
     console.log("ionViewDidLoad ProductDetailPage");
   }
+
+  chatSeller(product: Product){
+    // this.navCtrl.push(ProductDetailPage, { item: product });
+    this.navCtrl.setRoot(ChatPage, {
+      item:product,
+      nickname: 'Guest'
+    });
+  }
+
   addToCart(product: Product) {
     this.cartService.addToCart(product);
     this.cartService.cartCount=this.cartService.cartCount+1;
     this.cartCount=this.cartService.cartCount;
-    this.showToast('bottom');
-
+    this.showToast();
   }
-  showToast(position:string){
+
+  showToast(){
     let toast=this.toastController.create({
       message:'Your product was added to cart',
       duration:2000,
-      position:position
-
+      position:'bottom'
     });
     toast.present();
   }
+
   goToCart(){
     this.navCtrl.push(ShoppingCartPage);
   }
